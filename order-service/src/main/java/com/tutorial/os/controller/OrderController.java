@@ -1,5 +1,8 @@
 package com.tutorial.os.controller;
 
+import com.tutorial.os.dto.Payment;
+import com.tutorial.os.dto.TransactionRequest;
+import com.tutorial.os.dto.TransactionResponse;
 import com.tutorial.os.entity.Order;
 import com.tutorial.os.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping(path = "/bookOrder", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Order bookOrder(@RequestBody Order order) {
-        return orderService.saveOrder(order);
+    public TransactionResponse bookOrder(@RequestBody TransactionRequest request) {
+        return orderService.saveOrder(request);
     }
 }

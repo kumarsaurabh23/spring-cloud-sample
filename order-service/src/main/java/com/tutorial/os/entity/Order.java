@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Table(name = "ORDER_TB")
 public class Order {
     @Id
-    @GeneratedValue
     private int id;
     private String name;
     private int quantity;
