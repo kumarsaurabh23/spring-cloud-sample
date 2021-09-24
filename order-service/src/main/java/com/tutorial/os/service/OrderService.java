@@ -23,7 +23,7 @@ public class OrderService {
         payment.setOrderId(request.getOrder().getId());
         payment.setAmount(request.getOrder().getPrice());
         // rest call to payment service
-        Payment paymentResponse = restTemplate.postForObject("http://localhost:9092/payment/doPayment", payment, Payment.class);
+        Payment paymentResponse = restTemplate.postForObject("http://PAYMENT-SERVICE/payment/doPayment", payment, Payment.class);
         Order order = request.getOrder();
         if("success".equals(paymentResponse.getPaymentStatus())) {
             orderRepository.save(order);
