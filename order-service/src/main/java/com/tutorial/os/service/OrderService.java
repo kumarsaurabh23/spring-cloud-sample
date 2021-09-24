@@ -33,4 +33,8 @@ public class OrderService {
         }
         return new TransactionResponse(order, paymentResponse.getAmount(), paymentResponse.getTransactionId(), message);
     }
+
+    public Order findOrderDetailsById(int orderId) {
+        return orderRepository.findById(orderId).orElse(null);
+    }
 }

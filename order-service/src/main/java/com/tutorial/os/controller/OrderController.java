@@ -7,10 +7,7 @@ import com.tutorial.os.entity.Order;
 import com.tutorial.os.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orders")
@@ -22,5 +19,10 @@ public class OrderController {
     @PostMapping(path = "/bookOrder", produces = MediaType.APPLICATION_JSON_VALUE)
     public TransactionResponse bookOrder(@RequestBody TransactionRequest request) {
         return orderService.saveOrder(request);
+    }
+
+    @GetMapping("/getOrderDetails/{orderId}")
+    public Order getOrderDetails(@PathVariable int orderId) {
+        return orderService.findOrderDetailsById(orderId);
     }
 }
