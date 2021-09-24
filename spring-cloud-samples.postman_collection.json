@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "083671a5-3a34-4152-a1cf-cfd2e1822da8",
+		"name": "spring-cloud-samples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "payment-api",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentStatus\" : \"success\",\r\n    \"transactionId\" : \"102\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9092/payment/doPayment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"payment",
+						"doPayment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order-api",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order\" : {\r\n        \"id\" : 101,\r\n        \"name\" : \"phone\",\r\n        \"quantity\" : 1,\r\n        \"price\" : 1000.00\r\n    },\r\n    \"payment\" : {\r\n\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9091/orders/bookOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"orders",
+						"bookOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-gateway-1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order\" : {\r\n        \"id\" : 104,\r\n        \"name\" : \"specs\",\r\n        \"quantity\" : 2,\r\n        \"price\" : 50.00\r\n    },\r\n    \"payment\" : {\r\n\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9191/orders/bookOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"orders",
+						"bookOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-gateway-2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/orders/getOrderDetails/104",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"orders",
+						"getOrderDetails",
+						"104"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
