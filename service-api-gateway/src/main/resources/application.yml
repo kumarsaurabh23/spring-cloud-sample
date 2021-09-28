@@ -10,17 +10,23 @@ eureka:
 spring:
   application:
     name: gateway-service
-  cloud:
-    gateway:
-      routes:
-        - id:  order-service
-          uri: lb://order-service
-          predicates:
-            - Path=/orders/**
-        - id:  payment-service
-          uri: lb://payment-service
-          predicates:
-            - Path=/payment/**
+#  cloud:
+#    gateway:
+#      routes:
+#        - id:  order-service
+#          uri: lb://order-service
+#          predicates:
+#            - Path=/orders/**
+#
+#        - id:  payment-service
+#          uri: lb://payment-service
+#          predicates:s
+#            - Path=/payment/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/inCaseOfFailureUseThis
 
 server:
   port: 9191

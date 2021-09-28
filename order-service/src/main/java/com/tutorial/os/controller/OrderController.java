@@ -1,6 +1,5 @@
 package com.tutorial.os.controller;
 
-import com.tutorial.os.dto.Payment;
 import com.tutorial.os.dto.TransactionRequest;
 import com.tutorial.os.dto.TransactionResponse;
 import com.tutorial.os.entity.Order;
@@ -21,7 +20,7 @@ public class OrderController {
         return orderService.saveOrder(request);
     }
 
-    @GetMapping("/getOrderDetails/{orderId}")
+    @GetMapping(path = "/getOrderDetails/{orderId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Order getOrderDetails(@PathVariable int orderId) {
         return orderService.findOrderDetailsById(orderId);
     }
