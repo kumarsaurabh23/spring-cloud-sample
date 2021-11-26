@@ -1,15 +1,19 @@
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone:  http://localhost:8761/eureka
-  instance:
-    hostname: localhost
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone:  http://localhost:8761/eureka
+#  instance:
+#    hostname: localhost
 
 spring:
   application:
     name: gateway-service
+  cloud:
+    config:
+      import-check:
+        enabled: false
 #  cloud:
 #    gateway:
 #      routes:
