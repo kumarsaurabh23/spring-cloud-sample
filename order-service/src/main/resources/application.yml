@@ -14,3 +14,9 @@ spring:
     config:
       import-check:
         enabled: false
+  zipkin:
+    base-url: http://localhost:9411/
+
+logging:
+  file:
+    name: target/logs/microservice.log
